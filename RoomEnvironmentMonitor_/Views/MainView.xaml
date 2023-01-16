@@ -1,0 +1,56 @@
+﻿<Window x:Class="RoomEnvironmentMonitor_.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:bh="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:behaviors="clr-namespace:RoomEnvironmentMonitor_.Behaviors"
+        mc:Ignorable="d"
+        ShowInTaskbar="False"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        BorderBrush="#1f1f1f"
+        BorderThickness="2"
+        Topmost="True"
+        Opacity="{Binding Opacity}"
+        Top="{Binding Top, Mode=TwoWay}"
+        Left="{Binding Left, Mode=TwoWay}"
+        Height="34"
+        Width="250">
+
+    <bh:Interaction.Behaviors>
+        <behaviors:MainViewBehaviors/>
+    </bh:Interaction.Behaviors>
+    
+    <Grid Background="#292929">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="60"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Grid.Column="0"
+               Source="/Images/tempImage.jpg"/>
+
+        <TextBlock Text="{Binding Temperature}"
+                   Grid.Column="1"/>
+
+        <Image Grid.Column="2"
+               Source="/Images/humiImage.jpg"/>
+
+        <TextBlock Text="{Binding Humidity}"
+                   Grid.Column="3"/>
+
+        <Image Grid.Column="4"
+               Source="/Images/sunImage.jpg"/>
+
+        <TextBlock Text="{Binding Light}"
+                   Grid.Column="5"/>
+    </Grid>
+</Window>
